@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <div class="h-full w-full px-10 py-5">
+        <nav class="flex items-center justify-between">
+            <h1 class="text-2xl font-semibold">KhataBook</h1>
+            <div class="flex items-center gap-10">
+                <a href="/" class="font-semibold">Home</a>
+                <a href="/create" class="font-semibold">Create New Hisaab</a>
+            </div>
+        </nav>
+        <div class="mt-10">
+            <div class="font-semibold text-2xl">All Hisaab Kitab</div>
+            <div class="Hisaab mt-5">
+                <div class="flex flex-col gap-2">
+                    <% if (files.length > 0) { %>
+                        <% files.forEach((val) => { %>
+                            <div class="bg-blue-500 text-white flex w-[18vw] px-5 py-2 rounded-lg justify-between">
+                                <div class="flex gap-4 items-center">
+                                    <h1><%=val.split(".")[0]%></h1>
+                                    <a href="/hisaab/<%=val%>" class="bg-white text-blue-500 rounded-full px-1"><i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <div class="flex gap-4 items-center">
+                                    <a href="/edit/<%= val%>"><i class="ri-pencil-line"></i></a>
+                                    <a href="/delete/<%=val%>" class="bg-white text-red-500 rounded-full px-1"><i class="ri-delete-bin-line"></i></a>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <h1>Create a new Khata</h1>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

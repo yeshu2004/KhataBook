@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="h-full w-full px-10 py-5">
+        <nav class="flex items-center justify-between">
+            <h1 class="text-2xl font-semibold">KhataBook</h1>
+            <div class="flex items-center gap-10">
+                <a href="/" class="font-semibold">Home</a>
+                <a href="/create" class="font-semibold">Create New Hisaab</a>
+            </div>
+        </nav>
+        <div class="mt-10">
+            <h1 class="text-2xl font-semibold">You are editing hisaab of <span class="text-blue-500"><%= filename.split(".")[0]%></span> date</h1>
+            <div class="form mt-5">
+                <form action="/update/<%=filename%>" method="post" class="flex flex-col gap-4">
+                    <input class="border-2 border-zinc-200 h-full pb-40 w-1/2 rounded-lg bg-zinc-200 px-5 pt-2 outline-none text-sm font-semibold" type="text" placeholder="Daal, Atta, Cheeni" value="<%=data%>" name="editDetails">
+                    <input class="bg-blue-600 w-32 py-2 text-white rounded-lg" type="submit" value="Update Hisaab">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
